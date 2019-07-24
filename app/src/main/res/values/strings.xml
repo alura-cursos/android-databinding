@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Ceep</string>
+    <string name="titulo">Título</string>
+    <string name="descricao">Descrição</string>
+    <string name="salvar_nota">Salvar nota</string>
+    <string name="digite_o_endere_o_da_imagem">Digite o endereço da imagem</string>
+    <string name="imagem_da_nota">Imagem da nota</string>
+    <string name="imagem_nota_favorita">imagem nota favorita</string>
+</resources>
