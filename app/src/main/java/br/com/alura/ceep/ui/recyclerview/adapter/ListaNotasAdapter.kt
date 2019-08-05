@@ -8,9 +8,12 @@ import android.view.View.VISIBLE
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import br.com.alura.ceep.BR
 import br.com.alura.ceep.R
 import br.com.alura.ceep.model.Nota
 import br.com.alura.ceep.ui.extensions.carregaImagem
@@ -22,8 +25,9 @@ class ListaNotasAdapter(
 ) : ListAdapter<Nota, ListaNotasAdapter.ViewHolder>(DiffCallback) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val viewCriada = LayoutInflater.from(context).inflate(R.layout.item_nota, parent, false)
-        return ViewHolder(viewCriada)
+        val inflater = LayoutInflater.from(context)
+        val viewDataBinding = DataBindingUtil.inflate<ViewDataBinding>(inflater, R.layout.item_nota, parent, false)
+        return ViewHolder(viewDataBinding)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
@@ -32,12 +36,10 @@ class ListaNotasAdapter(
         }
     }
 
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(private val viewDataBinding: ViewDataBinding) :
+        RecyclerView.ViewHolder(viewDataBinding.root) {
 
         private lateinit var nota: Nota
-        private val campoTitulo: TextView by lazy {
-            itemView.item_nota_titulo
-        }
         private val campoDescricao: TextView by lazy {
             itemView.item_nota_descricao
         }
@@ -58,7 +60,7 @@ class ListaNotasAdapter(
 
         fun vincula(nota: Nota) {
             this.nota = nota
-            campoTitulo.text = nota.titulo
+            viewDataBinding.setVariable(BR.nota,nota)
             campoDescricao.text = nota.descricao
             if (this.nota.favorita) {
                 campoFavorita.visibility = VISIBLE
