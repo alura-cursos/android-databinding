@@ -26,6 +26,7 @@
             <ImageView
                 android:id="@+id/item_nota_imagem"
                 android:layout_width="0dp"
+                app:carregaImagem="@{nota.imagemUrl}"
                 android:layout_height="100dp"
                 android:contentDescription="@string/imagem_da_nota"
                 android:visibility="@{nota.imagemUrl.isEmpty() ? View.GONE : View.VISIBLE}"
