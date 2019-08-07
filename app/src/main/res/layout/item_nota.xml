@@ -6,6 +6,10 @@
         <import type="android.view.View" />
 
         <variable
+            name="clicaNaNota"
+            type="android.view.View.OnClickListener" />
+
+        <variable
             name="nota"
             type="br.com.alura.ceep.model.Nota" />
     </data>
@@ -16,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:onClick="@{(view) -> clicaNaNota.onClick(view)}"
         app:cardCornerRadius="8dp"
         app:cardElevation="1dp">
 
@@ -26,10 +31,10 @@
             <ImageView
                 android:id="@+id/item_nota_imagem"
                 android:layout_width="0dp"
-                app:carregaImagem="@{nota.imagemUrl}"
                 android:layout_height="100dp"
                 android:contentDescription="@string/imagem_da_nota"
                 android:visibility="@{nota.imagemUrl.isEmpty() ? View.GONE : View.VISIBLE}"
+                app:carregaImagem="@{nota.imagemUrl}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
