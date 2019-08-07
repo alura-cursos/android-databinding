@@ -10,5 +10,5 @@ data class Nota(
     val titulo: String = "",
     val descricao: String = "",
     val favorita: Boolean = false,
-    val imagemUrl: String = ""
+    var imagemUrl: String = ""
 )

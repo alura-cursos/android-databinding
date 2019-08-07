@@ -3,6 +3,9 @@
     <data>
         <import type="android.view.View" />
         <variable
+            name="solicitaImagem"
+            type="android.view.View.OnClickListener" />
+        <variable
             name="nota"
             type="br.com.alura.ceep.model.Nota" />
     </data>
@@ -16,6 +19,7 @@
             android:id="@+id/formulario_nota_imagem"
             android:layout_width="0dp"
             android:layout_height="200dp"
+            android:onClick="@{solicitaImagem}"
             app:carregaImagem="@{nota.imagemUrl}"
             android:visibility="@{nota.imagemUrl.isEmpty() ? View.GONE : View.VISIBLE}"
             android:contentDescription="@string/imagem_da_nota"
@@ -79,6 +83,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
+            android:onClick="@{solicitaImagem}"
             android:visibility="@{nota.imagemUrl.empty ? View.VISIBLE : View.GONE}"
             android:src="@drawable/ic_action_adiciona_foto"
             app:layout_constraintBottom_toBottomOf="parent"
