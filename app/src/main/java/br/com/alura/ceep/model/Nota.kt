@@ -7,8 +7,8 @@ import androidx.room.PrimaryKey
 data class Nota(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
-    val titulo: String = "",
-    val descricao: String = "",
-    val favorita: Boolean = false,
+    var titulo: String = "",
+    var descricao: String = "",
+    var favorita: Boolean = false,
     var imagemUrl: String = ""
 )
