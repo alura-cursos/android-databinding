@@ -7,7 +7,7 @@
             type="android.view.View.OnClickListener" />
         <variable
             name="nota"
-            type="br.com.alura.ceep.model.Nota" />
+            type="br.com.alura.ceep.ui.databinding.NotaData" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
